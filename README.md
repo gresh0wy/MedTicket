@@ -20,15 +20,17 @@ MedTicket to aplikacja PHP do zarządzania zgłoszeniami medycznymi (lub innymi 
 
 ---
 
-## Struktura katalogów
-medticket/
-├── public/ # Pliki publiczne (index.php)
-├── src/ # Kod źródłowy aplikacji
-├── vendor/ # Zależności Composera
-├── .env # Plik konfiguracyjny (niewersjonowany)
-├── composer.json # Definicja zależności
-├── composer.lock # Zablokowane wersje pakietów
-└── README.md # Ta instrukcja
+
+## Opis katalogów
+
+- **public/** – zawiera pliki dostępne publicznie, np. punkt wejścia `index.php`.
+- **src/** – główny kod źródłowy aplikacji (kontrolery, modele, logika biznesowa).
+- **vendor/** – biblioteki i zależności zainstalowane przez Composera.
+- **.env** – plik konfiguracyjny (zazwyczaj zawiera dane dostępowe do bazy, ustawienia środowiska).
+- **composer.json** – plik definiujący zależności PHP projektu.
+- **composer.lock** – plik blokujący wersje zainstalowanych pakietów.
+- **README.md** – dokumentacja projektu, którą właśnie czytasz.
+
 
 ---
 
@@ -37,7 +39,7 @@ medticket/
 1. **Sklonuj repozytorium**:
 
    ```bash
-   git clone https://adres.repozytorium.git medticket
+   git clone https://github.com/gresh0wy/MedTicket.git
    cd medticket
 
 2. **Zainstaluj zależności:**
