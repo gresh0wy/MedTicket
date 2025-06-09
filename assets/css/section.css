@@ -1,0 +1,426 @@
+:root {
+	/* Główne kolory i zmienne */
+	--color-primary: #4a90e2;
+	--color-primary-hover: #3b7dd8;
+	--color-secondary-bg: #f8f9fa;
+	--color-secondary-hover: #e2e6ea;
+	--border-radius: 5px;
+	--padding-default: 10px 20px;
+	--font-size-default: 1.8rem;
+	--box-shadow-light: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+html {
+	/* Podstawowa wielkość czcionki (1rem = 10px) */
+	font-size: 62.5%;
+}
+
+body {
+	/* Ustawienie fontu i wysokości strony */
+	font-family: 'Segoe UI', Tahoma, Verdana, Arial, sans-serif;
+	height: 100vh;
+	background: linear-gradient(135deg, #f4f6f9, #e9ecf1);
+	min-height: 100vh;
+	background-attachment: fixed;
+}
+
+nav {
+	/* Rozmiar czcionki w menu nawigacyjnym */
+	font-size: 1.6rem;
+}
+header {
+	background-color: var(--color-secondary-bg);
+	padding: 2rem 0;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+	margin-bottom: 2rem;
+}
+header h1 {
+	font-size: 2.4rem;
+	font-weight: 700;
+	color: var(--color-primary);
+	text-align: center;
+	margin: 0;
+}
+
+/* Styl dynamicznego podtytułu */
+.dynamic-header {
+	font-size: 2rem;
+	font-weight: 600;
+	color: var(--color-primary-hover);
+	text-align: center;
+	margin: 3rem 0;
+	position: relative;
+	padding-bottom: 0.5rem;
+}
+
+/* Dekoracyjna linia pod dynamicznym nagłówkiem */
+.dynamic-header::after {
+	content: '';
+	display: block;
+	width: 6rem;
+	height: 3px;
+	background-color: var(--color-primary);
+	margin: 0.5rem auto 0;
+	border-radius: 2px;
+}
+
+/* === STYL PRZYCISKU "Przejdź" === */
+.details .details-button {
+	/* Kontener w td i sam przycisk */
+	display: inline-block; /* zachowanie jak przycisk */
+	padding: var(--padding-default); /* wewnętrzny odstęp */
+	background-color: var(--color-primary);
+	color: #ffffff; /* biały tekst */
+	text-decoration: none; /* brak podkreślenia */
+	border-radius: var(--border-radius); /* zaokrąglone rogi */
+	font-size: 1.5rem;
+	font-weight: 500; /* półpogrubienie */
+	box-shadow: var(--box-shadow-light); /* lekki cień */
+	transition: background-color 0.3s ease, transform 0.2s ease;
+	text-align: center; /* wyśrodkowanie tekstu */
+	cursor: pointer; /* kursor wskazówki */
+}
+
+.details .details-button:hover {
+	/* Efekt po najechaniu */
+	background-color: var(--color-primary-hover);
+	transform: translateY(-2px); /* uniesienie w pionie */
+}
+
+.details .details-button:active {
+	/* Stan kliknięcia */
+	transform: translateY(0);
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* === STYL SELECT + OPTION "Wybierz pracownika" === */
+select {
+	/* Cały element <select> */
+	padding: var(--padding-default); /* wewnętrzny odstęp */
+	border: 1px solid #ccc; /* delikatna ramka */
+	border-radius: var(--border-radius);
+	background-color: var(--color-secondary-bg);
+	font-size: 1.5rem;
+	color: #333; /* ciemny tekst */
+	appearance: none; /* usunięcie domyślnej strzałki */
+	cursor: pointer; /* kursor wskazówki */
+}
+
+select:focus {
+	/* Gdy select ma fokus */
+	outline: none;
+	border-color: var(--color-primary);
+	background-color: #ffffff;
+}
+
+option {
+	/* Opcje listy rozwijanej */
+	font-size: 1.6rem; /* czytelny rozmiar czcionki */
+	padding: 0.5rem; /* wewnętrzny odstęp opcji */
+}
+
+/* Modyfikator dla pustej opcji */
+option[value=''] {
+	/* Podpowiedź “Wybierz pracownika” */
+	color: #999; /* jaśniejszy odcień tekstu */
+}
+
+/* === RESZTA TWOJEGO KODU (z komentarzami po polsku) === */
+
+.filter-button,
+.search-form button {
+	/* Przycisk filtra i przycisk wyszukiwania */
+	padding: 20px;
+	border: none;
+	background-color: var(--color-primary);
+	color: #ffffff;
+	border-radius: 8px;
+	cursor: pointer;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 1.6rem;
+	font-weight: 500;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	transition: all 0.2s ease-in-out;
+}
+.search-form button {
+	padding: 10px 20px;
+}
+.filter-button {
+	/* Ustawienie ikon wewnątrz przycisku filtra */
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.filter-button[data-status='all'] {
+	background-color: #6c757d;
+}
+.filter-button[data-status='nowe'] {
+	background-color: #17a2b8;
+}
+.filter-button[data-status='w trakcie'] {
+	background-color: #ffc107;
+	color: black;
+}
+.filter-button[data-status='zakończone'] {
+	background-color: #28a745;
+}
+.filter-button[data-status='odrzucono'] {
+	background-color: #dc3545;
+}
+
+.filter-button:hover,
+.search-form button:hover {
+	/* Efekt hover dla przycisków filtra i wyszukiwania */
+	background-color: #3a78c2;
+	transform: translateY(-2px);
+	box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.filter-button:active,
+.search-form button:active {
+	/* Efekt kliknięcia */
+	transform: translateY(0);
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+	/* Marginesy kontenera */
+	margin: 0 5rem;
+}
+
+.header {
+	/* Nagłówek z elementami po bokach */
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+/* Wspólna klasa dla przycisków */
+.btn {
+	padding: var(--padding-default);
+	font-size: var(--font-size-default);
+	border: none;
+	border-radius: var(--border-radius);
+	cursor: pointer;
+	display: inline-block;
+	text-decoration: none;
+}
+
+.btn--primary {
+	/* Styl podstawowy przycisku */
+	background-color: var(--color-primary);
+	color: white;
+}
+
+.btn--primary:hover {
+	/* Hover dla przycisku podstawowego */
+	background-color: var(--color-primary-hover);
+}
+
+.btn--secondary {
+	/* Styl przycisku drugorzędnego */
+	background-color: var(--color-secondary-bg);
+	color: black;
+	border: 1px solid #ddd;
+}
+
+.btn--secondary:hover {
+	/* Hover dla przycisku drugorzędnego */
+	background-color: var(--color-secondary-hover);
+}
+
+/* Kontenery na grupy przycisków */
+.filter-buttons,
+.buttons-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 50px;
+}
+
+.search-form {
+	/* Formularz wyszukiwania */
+	margin: 20px 0;
+	display: flex;
+	justify-content: flex-end;
+	gap: 10px;
+}
+
+.search-form input[type='text'] {
+	/* Pole tekstowe wyszukiwania */
+	padding: var(--padding-default);
+	border: 1px solid #ccc;
+	border-radius: var(--border-radius);
+	font-size: var(--font-size-default);
+	width: 200px;
+}
+
+/* Tabela główna */
+table {
+	width: 100%; /* wymusza 100% szerokości rodzica */
+	border-collapse: separate;
+	border-spacing: 0; /* Żeby uniknąć dziur między komórkami */
+	border-radius: 10px;
+	overflow: hidden; /* Ukryj wystające elementy */
+	border: 1px solid #ddd;
+	box-shadow: var(--box-shadow-light);
+}
+
+th,
+td {
+	/* Komórki tabeli */
+	border: 1px solid #ddd;
+	padding: 1.5rem;
+	text-align: center;
+}
+
+th {
+	/* Nagłówki tabeli */
+	background-color: var(--color-primary);
+	color: white;
+	font-weight: 600;
+	font-size: 1.6rem;
+}
+
+th a {
+	/* Linki w nagłówkach (np. sortowanie) */
+	color: white;
+	text-decoration: none;
+	font-size: 1.6rem;
+}
+.subject {
+	font-size: 1.5rem; /* rozmiar czcionki */
+	text-align: left; /* wyrównanie tekstu do lewej */
+}
+tr:nth-child(even) {
+	/* Parzyste wiersze */
+	background-color: #f9f9f9;
+}
+
+tr:hover {
+	/* Hover wiersza */
+	background-color: #f1f1f1;
+}
+
+/* Specjalizowane kolumny */
+.id-column {
+	width: 60px;
+	font-size: 1.6rem;
+}
+
+.priority-column,
+.category-column,
+.date-column,
+.department-column,
+.employee-column {
+	/* Ujednolicone font-size i ellipsis */
+	font-size: 1.5rem;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.date-column {
+	width: 16rem;
+}
+
+.category-column {
+	width: 10rem;
+}
+
+.department-column {
+	width: 15rem;
+}
+
+.description-column {
+	min-width: 20rem;
+	max-width: 30rem;
+}
+
+/* Priorytety w komórkach */
+.priority-cell {
+	display: inline-block;
+	padding: 0.8rem 1.6rem;
+	width: 70px;
+	border-radius: 25px;
+	background-color: #f9f9f9;
+	font-weight: bold;
+}
+
+.priority-niski {
+	background-color: #5cb85c;
+	color: #1c4d1c;
+}
+.priority-średni {
+	background-color: #f0ad4e;
+	color: #7a4f00;
+}
+.priority-wysoki {
+	background-color: #fd7e14;
+	color: #5a2e00;
+}
+.priority-krytyczny {
+	background-color: #c82333;
+	color: #ffffff;
+}
+
+/* Sortowanie - ikony i dropdowny */
+.icon-sort-container,
+.priority-header,
+.category-header,
+.date-header {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.sort-icon,
+.priority-icon,
+.category-icon,
+.date-icon {
+	font-size: 1.2rem;
+	margin-left: 0.5rem;
+	cursor: pointer;
+}
+
+.priority-dropdown,
+.category-dropdown,
+.date-dropdown {
+	display: none; /* ukryte domyślnie */
+	position: absolute;
+	top: 3.5rem;
+	left: 0;
+	background: #fff;
+	border: 1px solid #ccc;
+	border-radius: var(--border-radius);
+	padding: 1rem;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	width: 20rem;
+	z-index: 10;
+}
+
+/* Paginacja */
+.pagination {
+	text-align: center;
+	margin-bottom: 2rem;
+	margin: 20px;
+}
+
+.pagination a {
+	color: black;
+	padding: 0.8rem 1.6rem;
+	text-decoration: none;
+	border: 1px solid #ddd;
+	margin: 0 0.4rem;
+	border-radius: var(--border-radius);
+}
+
+.pagination a:hover {
+	background-color: #007bff;
+	color: white;
+	border-color: #007bff;
+}

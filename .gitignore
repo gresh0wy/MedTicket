@@ -1,0 +1,25 @@
+# Środowiskowy plik konfiguracyjny
+.env
+
+# Folder z zależnościami Composera
+/vendor/
+
+# Plik lock Composera (jeśli chcesz go ignorować)
+/composer.lock
+
+# Pliki cache i logi PHP
+*.log
+*.cache
+
+# Pliki tymczasowe i systemowe
+*.tmp
+*.bak
+*.swp
+.DS_Store
+Thumbs.db
+
+# IDE i edytory
+.vscode/
+.idea/
+*.iml
+

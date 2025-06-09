@@ -1,0 +1,268 @@
+/* =======================
+   ZMIENNE GLOBALNE
+   ======================= */
+:root {
+	/* Główne kolory i zmienne */
+	--color-primary: #4a90e2;
+	--color-primary-hover: #3b7dd8;
+	--color-secondary-bg: #f8f9fa;
+	--color-secondary-hover: #e2e6ea;
+	--color-accent: #ffffff;
+	--color-text: #263238;
+	--color-priority-low: #5cb85c;
+	--color-priority-medium: #f0ad4e;
+	--color-priority-high: #fd7e14;
+	--color-priority-critical: #c82333;
+	--border-radius: 5px;
+	--padding-default: 10px 20px;
+	--font-size-default: 1.8rem;
+	--box-shadow-light: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* =======================
+   RESET I BODY
+   ======================= */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	font-family: 'Segoe UI', Tahoma, Verdana, Arial, sans-serif;
+	background: var(--color-secondary-bg);
+	color: var(--color-text);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-height: 100vh;
+}
+
+/* =======================
+   NAGŁÓWEK
+   ======================= */
+header {
+	width: 100%;
+	background-color: var(--color-primary);
+	color: var(--color-accent);
+	padding: 1.5rem 0;
+	text-align: center;
+	box-shadow: var(--box-shadow-light);
+}
+header h1 {
+	font-size: 2.4rem;
+	font-weight: 700;
+}
+
+/* =======================
+   KONTENER GŁÓWNY
+   ======================= */
+.container {
+	width: 100%;
+	background: var(--color-accent);
+	border-radius: var(--border-radius);
+	box-shadow: var(--box-shadow-light);
+	padding: 2rem;
+	margin: 2rem 0;
+}
+
+/* =======================
+   PANEL UŻYTKOWNIKA
+   ======================= */
+.status-cards {
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+	margin-bottom: 2rem;
+}
+.status-card {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	background-color: var(--color-secondary-bg);
+	color: var(--color-text);
+	padding: var(--padding-default);
+	text-align: left;
+	border-radius: var(--border-radius);
+	cursor: pointer;
+	box-shadow: var(--box-shadow-light);
+	transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.status-card.active {
+	background-color: var(--color-primary);
+	color: var(--color-accent);
+}
+.status-card:hover {
+	transform: translateY(-3px);
+}
+
+/* =======================
+   WIADOMOŚĆ STATUSU
+   ======================= */
+.status-message {
+	text-align: center;
+	font-size: 1.8rem;
+	margin-bottom: 2rem;
+}
+
+/* =======================
+   WYSZUKIWARKA
+   ======================= */
+.search-bar {
+	text-align: center;
+	margin-bottom: 2rem;
+}
+.search-input {
+	padding: 0.8rem 1.2rem;
+	width: 80%;
+	max-width: 400px;
+	border: 1px solid #ccc;
+	border-radius: var(--border-radius);
+	font-size: var(--font-size-default);
+}
+
+/* =======================
+   TABELA ZGŁOSZEŃ
+   ======================= */
+table {
+	width: 100%; /* pełna szerokość kontenera */
+	margin: 0 10px 2rem; /* lekki margines po bokach */
+	table-layout: fixed;
+	border-collapse: separate;
+	border-spacing: 0;
+	border-radius: var(--border-radius);
+	overflow: hidden;
+	box-shadow: var(--box-shadow-light);
+}
+th,
+td {
+	padding: 1.2rem;
+	text-align: center;
+	border: 1px solid #ddd;
+	overflow-wrap: break-word;
+}
+th {
+	background-color: var(--color-primary);
+	color: var(--color-accent);
+	font-weight: 600;
+	font-size: 1.4rem;
+}
+tr:nth-child(even) {
+	background-color: var(--color-secondary-bg);
+}
+tr:hover {
+	background-color: var(--color-secondary-hover);
+}
+
+/* Priorytety */
+.priority-low {
+	background-color: var(--color-priority-low);
+	color: #fff;
+}
+.priority-medium {
+	background-color: var(--color-priority-medium);
+	color: #fff;
+}
+.priority-high {
+	background-color: var(--color-priority-high);
+	color: #fff;
+}
+.priority-critical {
+	background-color: var(--color-priority-critical);
+	color: #fff;
+}
+
+/* Szerokości kolumn */
+.id-column {
+	width: 5%;
+}
+.date-column {
+	width: 15%;
+}
+.category-column {
+	width: 15%;
+}
+.employee-column {
+	width: 20%;
+}
+.subject-column {
+	text-align: start;
+	width: 45%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* =======================
+   PRZYCISKI SZCZEGÓŁÓW
+   ======================= */
+.details-button {
+	display: inline-block;
+	padding: 0.6rem 1.2rem;
+	background-color: var(--color-primary);
+	color: var(--color-accent);
+	text-decoration: none;
+	border-radius: var(--border-radius);
+	font-size: 1.4rem;
+	transition: background-color 0.3s ease;
+}
+.details-button:hover {
+	background-color: var(--color-primary-hover);
+}
+
+/* =======================
+   PAGINACJA
+   ======================= */
+.pagination {
+	text-align: center;
+	margin-top: 1rem;
+}
+.pagination a {
+	display: inline-block;
+	margin: 0 0.5rem;
+	padding: 0.6rem 1rem;
+	border: 1px solid #ccc;
+	border-radius: var(--border-radius);
+	text-decoration: none;
+	color: var(--color-text);
+	transition: background-color 0.2s;
+}
+.pagination a:hover {
+	background-color: var(--color-secondary-bg);
+}
+
+/* =======================
+   RESPONSYWNOŚĆ
+   ======================= */
+@media (max-width: 768px) {
+	.status-cards {
+		flex-direction: column;
+	}
+	.container {
+		padding: 1rem;
+	}
+	table,
+	th,
+	td {
+		display: block;
+		width: calc(100% - 20px);
+		margin: 0 10px;
+	}
+	tr {
+		margin-bottom: 1rem;
+	}
+	th,
+	td {
+		position: relative;
+		padding-left: 50%;
+		text-align: right;
+	}
+	th::before,
+	td::before {
+		content: attr(data-label);
+		position: absolute;
+		left: 1rem;
+		width: calc(50% - 2rem);
+		white-space: nowrap;
+		font-weight: 600;
+		text-align: left;
+	}
+}

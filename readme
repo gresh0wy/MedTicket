@@ -1,0 +1,58 @@
+# MedTicket
+
+## Opis projektu
+
+MedTicket to aplikacja PHP do zarządzania zgłoszeniami medycznymi (lub innymi zgłoszeniami wymagającymi bezpiecznego przetwarzania). Projekt wykorzystuje Composer do zarządzania zależnościami, plik `.env` do przechowywania konfiguracji środowiskowej oraz SSL (HTTPS) do zabezpieczenia komunikacji.
+
+---
+
+## Wymagania
+
+- **PHP** w wersji co najmniej **7.4** (zalecane **8.x**)
+- **Composer** (https://getcomposer.org/)
+- Serwer WWW z obsługą PHP (Apache, Nginx, XAMPP itp.)
+- **Rozszerzenia PHP**:  
+  - `ext-mbstring`  
+  - `ext-openssl`  
+  - `ext-pdo_mysql` (lub `ext-pdo_pgsql`, jeśli używasz PostgreSQL)  
+- Plik konfiguracyjny **`.env`** w katalogu głównym projektu  
+- **Certyfikat SSL** (HTTPS) — zalecany w środowisku produkcyjnym  
+
+---
+
+## Struktura katalogów
+medticket/
+├── public/ # Pliki publiczne (index.php)
+├── src/ # Kod źródłowy aplikacji
+├── vendor/ # Zależności Composera
+├── .env # Plik konfiguracyjny (niewersjonowany)
+├── composer.json # Definicja zależności
+├── composer.lock # Zablokowane wersje pakietów
+└── README.md # Ta instrukcja
+
+---
+
+## Instalacja
+
+1. **Sklonuj repozytorium**:
+
+   ```bash
+   git clone https://adres.repozytorium.git medticket
+   cd medticket
+
+2. **Zainstaluj zależności:**
+composer install
+
+W pliku composer.json masz zdefiniowaną bibliotekę:
+{
+  "require": {
+    "vlucas/phpdotenv": "^5.6"
+  }
+}
+
+Pakiet vlucas/phpdotenv pozwala wczytywać zmienne środowiskowe z pliku .env.
+
+3. **Przygotuj plik .env:**
+
+Skopiuj plik przykładowy i zmień nazwę na .env:
+cp .env.example .env
